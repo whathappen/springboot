@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>Bootstrap 101 Template</title>
+
+<!-- Bootstrap -->
+<link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    .margintop {
+    	margin-top: 10px;
+    }
+    </style>
+</head>
+<body>
+	
+	<div style="width: 40%;height: 50%;margin: 0 auto;">
+	<h1>User表</h1>
+		
+	 	<form id="UserForm">
+			<div class="form-group">
+			<label >姓名：</label> <input
+				type="text" class="form-control" id="userName" name="userName">
+		</div>
+		<div class="form-group">
+			<label >密码：</label> <input
+				type="password" class="form-control" id="userPassword" name="userPassword">
+		</div>
+
+		<div class="form-group margintop">
+			<label >年龄：</label> <input
+				type="text" class="form-control" id="age" name="age">
+		</div>
+		<div class="form-group">
+			<label >地址：</label> <input
+				type="text" class="form-control" id="userAddr" name="userAddr">
+		</div>
+
+		<button type="button" id="sendHQ" class="btn btn-default">发送HQ</button>
+		<button type="button" id="storageDB" class="btn btn-default">入库</button>
+	 	</form>
+		</div>
+		<div id="result" style="width: 40%;margin: 0 auto;"></div>
+	<script type="text/javascript">
+	$("#storageDB").click(function(){
+		$.ajax({
+			type:'post',
+			url:"storageDB",
+			success:function(data){
+				alert("入库成功！");
+			},
+			error:function(xhr,status,error){
+				alert(error);
+			}
+		});
+	});
+	$("#sendHQ").click(function(){
+		$.ajax({
+			type:'post',
+			url:"sendtest",
+			data: $("#UserForm").serializeArray(),	
+			success:function(data){
+				$("#result").empty();
+				$("#result").append("<div class=\"alert alert-success\" role=\"alert\">" +  data.message + "</div>");
+			},
+			error:function(xhr,status,error){
+				alert(error);
+			}
+		});
+	});
+	</script>
+</body>
+</html>

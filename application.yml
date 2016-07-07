@@ -1,0 +1,30 @@
+##服务端口
+server.port: 8088   
+##actuator 查看信息结果转换为json格式
+http.mappers.jsonPrettyPrint: true
+##是否将HQ中的数据入库
+publish.db: true
+##HQ配置
+jms: 
+ initial: org.jnp.interfaces.NamingContextFactory
+ url: jnp://localhost:1099
+ pkgs: org.jboss.naming:org.jnp.interfaces
+ name: /ConnectionFactory
+ batch: 100
+ 
+security.user.name: admin  
+security.user.password: test
+##数据库配置
+jdbc: 
+ type: Mysql
+ url: jdbc:mysql://localhost:3306/spring-boot?zeroDateTimeBehavior=convertToNull
+ username: root
+ password: wsh930209
+ driverClassName: com.mysql.jdbc.Driver
+ connectionTestQuery: SELECT 1 from dual
+ maximumPoolSize: 200
+ minimumIdle: 100
+ defaultAutoCommit: false
+ maxLifetime: 2000000
+ connectionTimeout: 30000
+ idleTimeout: 300000

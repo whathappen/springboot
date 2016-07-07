@@ -3,7 +3,7 @@ server.port: 8080
 ##actuator 查看信息结果转换为json格式
 http.mappers.jsonPrettyPrint: false
 ##是否将HQ中的数据入库
-publish.db: false
+publish.db: true
 ##HQ配置
 jms: 
  initial: org.jnp.interfaces.NamingContextFactory

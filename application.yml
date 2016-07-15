@@ -1,3 +1,4 @@
+endpoints.health.sensitive: false
 ##服务端口
 server.port: 8088   
 ##actuator 查看信息结果转换为json格式

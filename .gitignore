@@ -1,1 +1,5 @@
 target/
+logs/springboot-error-today.log
+logs/springboot-error/etl-error-2016-07-08.0.log.gz
+logs/springboot-info-today.log
+logs/springboot-info/etl-info-2016-07-08.0.log.gz
